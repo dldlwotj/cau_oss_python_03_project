@@ -66,11 +66,10 @@ def start_process(path):
             print(keywords)
             keyword = input('type keyword:')
             if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
-            else: print("invalid input")
+                p = parking_spot_manager.sort_by_keyword(p, keyword)        # parking_spot 클래스의 객체 리스트 'p'를 주어진 키워드에 대해 오름차순으로 정렬
+            else: print("invalid input")        # 입력된 키워드가 존재하지 않을 경우 "invalid input" 출력
         elif select == 4:
-            print("Exit")       #"Exit" 출력 후
-            break       #반복문 탈출, 종료
+            print("Exit")       # "Exit" 출력 후
+            break       # 반복문 탈출, 종료
         else:
             print("invalid input")
