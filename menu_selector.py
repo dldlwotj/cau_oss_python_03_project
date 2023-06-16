@@ -36,27 +36,28 @@ def start_process(path):
             select = int(input('type:'))
             if select == 1:
                 keyword = input('type name:')
-                print("not implemented yet")
-                # fill this block
+                # parking_spot 클래스의 객체 리스트 'p'를 이름(입력받은 키워드)으로 필터링
+                p = parking_spot_manager.filter_by_name(p, keyword)
             elif select == 2:
                 keyword = input('type city:')
-                print("not implemented yet")
-                # fill this block
+                # parking_spot 클래스의 객체 리스트 'p'를 도시(입력받은 키워드)로 필터링
+                p = parking_spot_manager.filter_by_city(p, keyword)
             elif select == 3:
                 keyword = input('type district:')
-                print("not implemented yet")
-                # fill this block
+                # parking_spot 클래스의 객체 리스트 'p'를 시 군구(입력받은 키워드)로 필터링
+                p = parking_spot_manager.filter_by_district(p, keyword)
             elif select == 4:
                 keyword = input('type ptype:')
-                print("not implemented yet")
-                # fill this block
+                # parking_spot 클래스의 객체 리스트 'p'를 유형(입력받은 키워드)으로 필터링
+                p = parking_spot_manager.filter_by_ptype(p, keyword)
             elif select == 5:
+                # 최소 경도, 최대 경도, 최소 위도, 최대 위도 입력 받기
                 min_lat = float(input('type min lat:'))
                 max_lat = float(input('type max lat:'))
                 min_lon = float(input('type min long:'))
                 max_lon = float(input('type max long:'))
-                print("not implemented yet")
-                # fill this block
+                # parking_spot 클래스의 객체 리스트 'p'를 위치(입력받은 키워드)로 필터링
+                p = parking_spot_manager.filter_by_location(p, (min_lat, max_lat, min_lon, max_lon))
             else:
                 print("invalid input")
         elif select == 3:

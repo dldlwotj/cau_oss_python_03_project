@@ -43,7 +43,35 @@ def print_spots(spots):
     for i in spots:
         print(i)
 
+def filter_by_name(spots, name):
+    # 주어진 문자열이 이름에 포함된 곳만 필터링
+    new_spots = [spot for spot in spots if name in spot.get('name')]
+    return new_spots
 
+def filter_by_city(spots, city):
+    # 주어진 도시에 위치한 것만 필터링
+    new_spots = [spot for spot in spots if city in spot.get('city')]
+    return new_spots
+
+def filter_by_district(spots, district):
+    # 주어진 시 군구에 위치한 것만 필터링
+    new_spots = [spot for spot in spots if district in spot.get('district')]
+    return new_spots
+
+def filter_by_ptype(spots, ptype):
+    # 주어진 유형에 맞는 것만 필터링
+    new_spots = [spot for spot in spots if ptype in spot.get('ptype')]
+    return new_spots
+
+def filter_by_location(spots, locations):
+    # 튜플 인자 'locations'을 사용해 최소 경도, 최대 경도, 최소 위도, 최대 위도 설정
+    min_lat = locations[0]
+    max_lat = locations[1]
+    min_lon = locations[2]
+    max_lon = locations[3]
+    # 주어진 경도와 위도 사이에 위치한 것만 필터링
+    new_spots = [spot for spot in spots if (min_lat < spot.get('latitude') and spot.get('latitude') < max_lat and min_lon < spot.get('longitude') and spot.get('longitude') < max_lon)]
+    return new_spots
 
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
 if __name__ == '__main__':
@@ -52,7 +80,7 @@ if __name__ == '__main__':
     # import file_manager
     # str_list = file_manager.read_file("./input/free_parking_spot_seoul.csv")
     # spots = str_list_to_class_list(str_list)
-    # sprint_spots(spots)
+    # print_spots(spots)
 
     # version#3
     # spots = filter_by_district(spots, '동작')
